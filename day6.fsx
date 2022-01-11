@@ -1,6 +1,6 @@
 open System
 let data =
-    IO.File.ReadAllText(__SOURCE_DIRECTORY__ + "/day6.txt")
+    IO.File.ReadAllText(__SOURCE_DIRECTORY__ + "/input/day6.txt")
     |> (fun s -> s.Split(','))
     |> Seq.map (byte)
     |> Seq.toList

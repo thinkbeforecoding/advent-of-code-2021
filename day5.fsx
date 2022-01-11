@@ -29,7 +29,7 @@ fsi.AddPrinter(Segment.toString)
 
 // load and parse data
 let data =
-    File.ReadAllLines(__SOURCE_DIRECTORY__ + "/day5.txt")
+    File.ReadAllLines(__SOURCE_DIRECTORY__ + "/input/day5.txt")
     |> Array.map Segment.parse
 
 // part 1

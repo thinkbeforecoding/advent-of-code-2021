@@ -1,7 +1,7 @@
 open System.IO
 
 let data =
-    File.ReadAllLines(__SOURCE_DIRECTORY__ + "/day2.txt")
+    File.ReadAllLines(__SOURCE_DIRECTORY__ + "/input/day2.txt")
     |> Array.map (fun s -> 
         match s.Split(' ') with
         | [| cmd; x |] -> cmd, int x
@@ -12,9 +12,9 @@ let data =
 // group by direction and sum
 let dirs = 
     data
-    |> Array.groupBy fst
-    |> Array.map (fun (cmd, values) -> cmd, Array.sumBy snd values )
-    |> Map.ofArray
+    |> Array.groupBy fst    // group by direction
+    |> Array.map (fun (cmd, values) -> cmd, Array.sumBy snd values ) // sum grouped values
+    |> Map.ofArray  // create a map
 
 
 // compute result
@@ -38,12 +38,12 @@ let data2 =
     )
 
 // evolution function
-// state contains curent x pos, depth and aim
+// state contains current x pos, depth and aim
 let evolve (pos,depth, aim) (action, x) =
     match action with
     | Down -> (pos, depth, aim+x)  // increase aim
     | Up -> (pos, depth, aim-x)    // decrease aim
-    | Forward -> (pos+x, depth + aim*x, aim) // move x, apply m to depth
+    | Forward -> (pos+x, depth + aim*x, aim) // move x, apply aim to depth
 
 // test on example
 let (pos,depth,_) =

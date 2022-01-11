@@ -1,5 +1,5 @@
 let data = 
-    System.IO.File.ReadAllLines(__SOURCE_DIRECTORY__ + "/day1.txt")
+    System.IO.File.ReadAllLines(__SOURCE_DIRECTORY__ + "/input/day1.txt")
     |> Array.map int
 
 // part 1
