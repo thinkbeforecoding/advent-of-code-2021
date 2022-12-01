@@ -17,19 +17,18 @@ let printPath (cave : Cave) =
 
 fsi.AddPrinter printPath
 
-let test = [|
-    "start-A"
-    "start-b"
-    "A-c"
-    "A-b"
-    "b-d"
-    "A-end"
-    "b-end"
-|]
 
+let test =
+    //  System.IO.File.ReadAllLines(__SOURCE_DIRECTORY__ + "/input/day12.txt")
+    [|  "start-A"
+        "start-b"
+        "A-c"
+        "A-b"
+        "b-d"
+        "A-end"
+        "b-end" |]
 let data =
     System.IO.File.ReadAllLines(__SOURCE_DIRECTORY__ + "/input/day12.txt")
-    //test
     |> Array.map (fun line -> 
         match line.Split('-') with
         | [| x; y |] -> x,y 
